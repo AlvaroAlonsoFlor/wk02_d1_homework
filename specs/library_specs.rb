@@ -41,4 +41,18 @@ class LibraryTest < MiniTest::Test
     library = Library.new(@library_01)
     assert_equal(result, library.find_rental_details_by_name("lord_of_the_rings"))
   end
+
+  def test_add_book
+    result = {
+    title: "spartacus",
+    rental_details: {
+      student_name: "",
+      date: ""
+      }
+    }
+    library = Library.new(@library_01)
+    library.add_book("spartacus")
+    assert_equal(result, library.find_info_by_title("spartacus") )
+
+  end
 end
