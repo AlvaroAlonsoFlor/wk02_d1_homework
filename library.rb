@@ -28,4 +28,10 @@ class Library
     @books.push(new_book)
   end
 
+  def change_rental_details(book_name, student_name, date)
+    book = find_info_by_title(book_name)
+    book[:rental_details][:student_name] = student_name
+    book[:rental_details][:date] = date
+  end
+
 end

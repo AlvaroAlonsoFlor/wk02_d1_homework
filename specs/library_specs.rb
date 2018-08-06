@@ -52,7 +52,34 @@ class LibraryTest < MiniTest::Test
     }
     library = Library.new(@library_01)
     library.add_book("spartacus")
-    assert_equal(result, library.find_info_by_title("spartacus") )
+    assert_equal(result, library.find_info_by_title("spartacus"))
+  end
+
+  def test_change_rental_details
+
+    result = [
+    {
+    title: "lord_of_the_rings",
+    rental_details: {
+      student_name: "Alvaro",
+      date: "06/08/18"
+    }
+    },
+    {
+    title: "foundation",
+    rental_details: {
+      student_name: "Alvaro",
+      date: "03/07/18"
+    }
+    }
+    ]
+
+    library = Library.new(@library_01)
+    library.change_rental_details("lord_of_the_rings", "Alvaro", "06/08/18")
+    assert_equal(result, library.books)
+
+
 
   end
+
 end
